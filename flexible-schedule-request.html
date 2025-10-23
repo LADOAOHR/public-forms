@@ -167,18 +167,25 @@
         }
 
         .lunch-options {
+            border: none;
+            padding: 12px 0;
+            margin-top: 12px;
+        }
+
+        .lunch-options legend {
+            font-weight: bold;
+            font-size: 10pt;
+            padding: 0;
+            margin-bottom: 8px;
+        }
+
+        .lunch-radio-group {
             display: flex;
             gap: 20px;
             align-items: center;
-            margin-top: 12px;
             padding: 12px;
             background-color: #fff;
             border-radius: 4px;
-        }
-
-        .lunch-options span.label {
-            font-weight: bold;
-            margin-right: 8px;
         }
 
         .radio-option {
@@ -436,21 +443,23 @@
                                     <span>p.m.</span>
                                 </div>
                             </div>
-                            <div class="lunch-options" role="radiogroup" aria-label="Lunch duration for traditional schedule">
-                                <span class="label">Lunch break:</span>
-                                <div class="radio-option">
-                                    <input type="radio" id="opt1-lunch-30" name="opt1-lunch" value="30">
-                                    <label for="opt1-lunch-30">30 minutes</label>
+                            <fieldset class="lunch-options">
+                                <legend>Lunch break:</legend>
+                                <div class="lunch-radio-group">
+                                    <div class="radio-option">
+                                        <input type="radio" id="opt1-lunch-30" name="opt1-lunch" value="30">
+                                        <label for="opt1-lunch-30">30 minutes</label>
+                                    </div>
+                                    <div class="radio-option">
+                                        <input type="radio" id="opt1-lunch-45" name="opt1-lunch" value="45">
+                                        <label for="opt1-lunch-45">45 minutes</label>
+                                    </div>
+                                    <div class="radio-option">
+                                        <input type="radio" id="opt1-lunch-60" name="opt1-lunch" value="60">
+                                        <label for="opt1-lunch-60">1 hour</label>
+                                    </div>
                                 </div>
-                                <div class="radio-option">
-                                    <input type="radio" id="opt1-lunch-45" name="opt1-lunch" value="45">
-                                    <label for="opt1-lunch-45">45 minutes</label>
-                                </div>
-                                <div class="radio-option">
-                                    <input type="radio" id="opt1-lunch-60" name="opt1-lunch" value="60">
-                                    <label for="opt1-lunch-60">1 hour</label>
-                                </div>
-                            </div>
+                            </fieldset>
                         </div>
                     </div>
 
@@ -492,21 +501,23 @@
                                     <input type="text" id="opt2a-dayoff" name="opt2a-dayoff" style="width: 120px;" placeholder="e.g., Friday" aria-label="Scheduled day off">
                                 </div>
 
-                                <div class="lunch-options" role="radiogroup" aria-label="Lunch duration for 4-day week">
-                                    <span class="label">Lunch break:</span>
-                                    <div class="radio-option">
-                                        <input type="radio" id="opt2a-lunch-30" name="opt2a-lunch" value="30">
-                                        <label for="opt2a-lunch-30">30 minutes</label>
+                                <fieldset class="lunch-options">
+                                    <legend>Lunch break:</legend>
+                                    <div class="lunch-radio-group">
+                                        <div class="radio-option">
+                                            <input type="radio" id="opt2a-lunch-30" name="opt2a-lunch" value="30">
+                                            <label for="opt2a-lunch-30">30 minutes</label>
+                                        </div>
+                                        <div class="radio-option">
+                                            <input type="radio" id="opt2a-lunch-45" name="opt2a-lunch" value="45">
+                                            <label for="opt2a-lunch-45">45 minutes</label>
+                                        </div>
+                                        <div class="radio-option">
+                                            <input type="radio" id="opt2a-lunch-60" name="opt2a-lunch" value="60">
+                                            <label for="opt2a-lunch-60">1 hour</label>
+                                        </div>
                                     </div>
-                                    <div class="radio-option">
-                                        <input type="radio" id="opt2a-lunch-45" name="opt2a-lunch" value="45">
-                                        <label for="opt2a-lunch-45">45 minutes</label>
-                                    </div>
-                                    <div class="radio-option">
-                                        <input type="radio" id="opt2a-lunch-60" name="opt2a-lunch" value="60">
-                                        <label for="opt2a-lunch-60">1 hour</label>
-                                    </div>
-                                </div>
+                                </fieldset>
                             </div>
 
                             <!-- Sub-option 2B -->
@@ -529,21 +540,23 @@
                                     <input type="text" id="opt2b-shortday" name="opt2b-shortday" style="width: 120px;" placeholder="Monday or Friday" aria-label="Four-hour work day">
                                 </div>
 
-                                <div class="lunch-options" role="radiogroup" aria-label="Lunch duration for partial day schedule">
-                                    <span class="label">Lunch break:</span>
-                                    <div class="radio-option">
-                                        <input type="radio" id="opt2b-lunch-30" name="opt2b-lunch" value="30">
-                                        <label for="opt2b-lunch-30">30 minutes</label>
+                                <fieldset class="lunch-options">
+                                    <legend>Lunch break:</legend>
+                                    <div class="lunch-radio-group">
+                                        <div class="radio-option">
+                                            <input type="radio" id="opt2b-lunch-30" name="opt2b-lunch" value="30">
+                                            <label for="opt2b-lunch-30">30 minutes</label>
+                                        </div>
+                                        <div class="radio-option">
+                                            <input type="radio" id="opt2b-lunch-45" name="opt2b-lunch" value="45">
+                                            <label for="opt2b-lunch-45">45 minutes</label>
+                                        </div>
+                                        <div class="radio-option">
+                                            <input type="radio" id="opt2b-lunch-60" name="opt2b-lunch" value="60">
+                                            <label for="opt2b-lunch-60">1 hour</label>
+                                        </div>
                                     </div>
-                                    <div class="radio-option">
-                                        <input type="radio" id="opt2b-lunch-45" name="opt2b-lunch" value="45">
-                                        <label for="opt2b-lunch-45">45 minutes</label>
-                                    </div>
-                                    <div class="radio-option">
-                                        <input type="radio" id="opt2b-lunch-60" name="opt2b-lunch" value="60">
-                                        <label for="opt2b-lunch-60">1 hour</label>
-                                    </div>
-                                </div>
+                                </fieldset>
                             </div>
 
                             <!-- Sub-option 2C -->
@@ -582,21 +595,23 @@
                                     <input type="text" id="opt2c-week" name="opt2c-week" style="width: 160px;" placeholder="First or Second week" aria-label="Week of pay period for day off">
                                 </div>
 
-                                <div class="lunch-options" role="radiogroup" aria-label="Lunch duration for 9/80 schedule">
-                                    <span class="label">Lunch break:</span>
-                                    <div class="radio-option">
-                                        <input type="radio" id="opt2c-lunch-30" name="opt2c-lunch" value="30">
-                                        <label for="opt2c-lunch-30">30 minutes</label>
+                                <fieldset class="lunch-options">
+                                    <legend>Lunch break:</legend>
+                                    <div class="lunch-radio-group">
+                                        <div class="radio-option">
+                                            <input type="radio" id="opt2c-lunch-30" name="opt2c-lunch" value="30">
+                                            <label for="opt2c-lunch-30">30 minutes</label>
+                                        </div>
+                                        <div class="radio-option">
+                                            <input type="radio" id="opt2c-lunch-45" name="opt2c-lunch" value="45">
+                                            <label for="opt2c-lunch-45">45 minutes</label>
+                                        </div>
+                                        <div class="radio-option">
+                                            <input type="radio" id="opt2c-lunch-60" name="opt2c-lunch" value="60">
+                                            <label for="opt2c-lunch-60">1 hour</label>
+                                        </div>
                                     </div>
-                                    <div class="radio-option">
-                                        <input type="radio" id="opt2c-lunch-45" name="opt2c-lunch" value="45">
-                                        <label for="opt2c-lunch-45">45 minutes</label>
-                                    </div>
-                                    <div class="radio-option">
-                                        <input type="radio" id="opt2c-lunch-60" name="opt2c-lunch" value="60">
-                                        <label for="opt2c-lunch-60">1 hour</label>
-                                    </div>
-                                </div>
+                                </fieldset>
                             </div>
                         </div>
                     </div>
