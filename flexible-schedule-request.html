@@ -28,6 +28,64 @@
             box-shadow: 0 0 10px rgba(0,0,0,0.1);
         }
 
+        .instructions-page {
+            page-break-after: always;
+            margin-bottom: 40px;
+        }
+
+        .instructions-page h1 {
+            text-align: center;
+            font-size: 16pt;
+            font-weight: bold;
+            margin-bottom: 20px;
+            text-transform: uppercase;
+            border-bottom: 3px solid #000;
+            padding-bottom: 12px;
+        }
+
+        .instructions-page h2 {
+            font-size: 13pt;
+            font-weight: bold;
+            margin: 20px 0 12px 0;
+            color: #000;
+        }
+
+        .instructions-page p {
+            margin-bottom: 12px;
+            line-height: 1.7;
+        }
+
+        .instructions-page ul {
+            margin: 8px 0 16px 24px;
+            line-height: 1.8;
+        }
+
+        .instructions-page ol {
+            margin: 8px 0 16px 24px;
+            line-height: 1.8;
+        }
+
+        .instructions-page .option-box {
+            background-color: #f9f9f9;
+            border: 2px solid #333;
+            border-radius: 8px;
+            padding: 16px;
+            margin-bottom: 16px;
+        }
+
+        .instructions-page .option-box h3 {
+            font-size: 12pt;
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+
+        .instructions-page .note-box {
+            background-color: #fff3cd;
+            border-left: 4px solid #ffc107;
+            padding: 12px;
+            margin: 16px 0;
+        }
+
         h1 {
             text-align: center;
             font-size: 15pt;
@@ -349,6 +407,10 @@
                 page-break-inside: avoid;
             }
 
+            .instructions-page {
+                page-break-after: always;
+            }
+
             @page {
                 size: letter;
                 margin: 0.5in;
@@ -373,7 +435,7 @@
                 align-items: flex-start;
             }
 
-            .lunch-options {
+            .lunch-radio-group {
                 flex-direction: column;
                 align-items: flex-start;
                 gap: 12px;
@@ -389,6 +451,69 @@
     </button>
 
     <div class="container">
+        <!-- Instructions Page -->
+        <div class="instructions-page" role="region" aria-labelledby="instructions-heading">
+            <h1 id="instructions-heading">Instructions: Flexible Work Schedule Request</h1>
+
+            <div class="note-box">
+                <p><strong>Important:</strong> Read these instructions first to choose the best way to complete this form.</p>
+            </div>
+
+            <h2>About Electronic Signatures</h2>
+            <p>Typing your name in the signature field is acceptable as your electronic signature. You do not need to add a handwritten signature unless you prefer to do so.</p>
+
+            <h2>How to Complete This Form</h2>
+            <p>Choose the option that works best for you:</p>
+
+            <div class="option-box">
+                <h3>Option 1: Fill Out Online, Then Save as PDF</h3>
+                <ol>
+                    <li>Complete all fields in your web browser</li>
+                    <li>Type your name in the signature field (this counts as your signature)</li>
+                    <li>Click the <strong>Print</strong> button (top right corner of the screen)</li>
+                    <li>Select <strong>"Save as PDF"</strong> as your printer</li>
+                    <li>Save the completed PDF to your computer or mobile device</li>
+                    <li>Email the PDF to your supervisor for approval</li>
+                </ol>
+            </div>
+
+            <div class="option-box">
+                <h3>Option 2: Save Blank PDF, Then Fill Digitally</h3>
+                <p><em>Best for: Those who want to use PDF Fill & Sign tools</em></p>
+                <ol>
+                    <li>Click the <strong>Print</strong> button (top right corner)</li>
+                    <li>Select <strong>"Save as PDF"</strong> as your printer and save the blank form</li>
+                    <li>Open the PDF in Adobe Acrobat Reader or your preferred PDF viewer</li>
+                    <li>Use <strong>Fill & Sign</strong> tools to complete all fields and add your signature</li>
+                    <li>Save the completed PDF</li>
+                    <li>Email the PDF to your supervisor for approval</li>
+                </ol>
+            </div>
+
+            <div class="option-box">
+                <h3>Option 3: Print on Paper and Complete by Hand</h3>
+                <ol>
+                    <li>Click the <strong>Print</strong> button (top right corner)</li>
+                    <li>Select your printer and print the form on paper</li>
+                    <li>Fill out all fields with a blue or black ink pen (do not use a pencil)</li>
+                    <li>Sign the form</li>
+                    <li>Either:
+                        <ul style="margin: 6px 0 0 20px; list-style-type: disc;">
+                            <li>Scan the completed form and email the PDF to your supervisor, or</li>
+                            <li>Deliver the physical paper form to your supervisor</li>
+                        </ul>
+                    </li>
+                </ol>
+            </div>
+
+            <h2>What Happens Next</h2>
+            <p>After your supervisor approves and signs the form, they will forward it to the Office of Human Resources (OHR) for final processing.</p>
+
+            <h2>Need Help?</h2>
+            <p>If you have questions about completing this form, contact your supervisor or the Office of Human Resources.</p>
+        </div>
+
+        <!-- Form Page -->
         <main id="main-content">
             <h1>Request for Flexible Work Hours/Work Schedule</h1>
 
@@ -676,15 +801,7 @@
                 </section>
 
                 <div class="footer-note">
-                    <strong>How to Save This Form:</strong>
-                    <ol style="margin: 8px 0 16px 20px; line-height: 1.8;">
-                        <li>Fill out all required fields above</li>
-                        <li>Click the <strong>Print</strong> button (top right corner)</li>
-                        <li>In the print dialog, select <strong>"Save as PDF"</strong> as your printer</li>
-                        <li>Choose where to save the file on your computer</li>
-                        <li>Click <strong>Save</strong></li>
-                    </ol>
-                    <strong>Next Steps:</strong> Upon completion and approval by the section head, forward the form to the Office of Human Resources (OHR).
+                    <strong>Next Steps:</strong> After completing this form, submit it to your supervisor for approval. Your supervisor will then forward it to the Office of Human Resources (OHR).
                 </div>
             </form>
         </main>
