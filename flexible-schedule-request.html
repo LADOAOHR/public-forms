@@ -138,6 +138,20 @@
             background-color: transparent;
         }
 
+        input[type="date"]::-webkit-datetime-edit-text,
+        input[type="date"]::-webkit-datetime-edit-month-field,
+        input[type="date"]::-webkit-datetime-edit-day-field,
+        input[type="date"]::-webkit-datetime-edit-year-field {
+            color: transparent;
+        }
+
+        input[type="date"]:focus::-webkit-datetime-edit-text,
+        input[type="date"]:focus::-webkit-datetime-edit-month-field,
+        input[type="date"]:focus::-webkit-datetime-edit-day-field,
+        input[type="date"]:focus::-webkit-datetime-edit-year-field {
+            color: #000;
+        }
+
         input[type="text"]:focus,
         input[type="date"]:focus {
             outline: 2px solid #0066cc;
@@ -495,7 +509,7 @@
                 <ol>
                     <li>Click the <strong>Print</strong> button (top right corner)</li>
                     <li>Select your printer and print the form on paper</li>
-                    <li>Fill out all fields with an ink pen</li>
+                    <li>Fill out all fields with a pen</li>
                     <li>Sign the form</li>
                     <li>Either:
                         <ul style="margin: 6px 0 0 20px; list-style-type: disc;">
@@ -510,7 +524,7 @@
             <p>After your supervisor approves and signs the form, they will forward it to the Office of Human Resources (OHR) for final processing.</p>
 
             <h2>Need Help?</h2>
-            <p>If you have questions about completing this form or which work schedule option is right for you, contact your supervisor or the Office of Human Resources.</p>
+            <p>If you have questions about completing this form, contact your supervisor or the Office of Human Resources.</p>
         </div>
 
         <!-- Form Page -->
