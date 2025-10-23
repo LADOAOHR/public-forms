@@ -138,17 +138,14 @@
             background-color: transparent;
         }
 
-        input[type="date"]::-webkit-datetime-edit-text,
-        input[type="date"]::-webkit-datetime-edit-month-field,
-        input[type="date"]::-webkit-datetime-edit-day-field,
-        input[type="date"]::-webkit-datetime-edit-year-field {
+        /* Hide date placeholder when empty */
+        input[type="date"]:not(:focus):invalid::-webkit-datetime-edit {
             color: transparent;
         }
 
-        input[type="date"]:focus::-webkit-datetime-edit-text,
-        input[type="date"]:focus::-webkit-datetime-edit-month-field,
-        input[type="date"]:focus::-webkit-datetime-edit-day-field,
-        input[type="date"]:focus::-webkit-datetime-edit-year-field {
+        /* Show date format when focused or has a value */
+        input[type="date"]:focus::-webkit-datetime-edit,
+        input[type="date"]:valid::-webkit-datetime-edit {
             color: #000;
         }
 
