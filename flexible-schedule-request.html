@@ -138,14 +138,18 @@
             background-color: transparent;
         }
 
-        /* Hide date placeholder when empty */
-        input[type="date"]:not(:focus):invalid::-webkit-datetime-edit {
+        /* Hide date placeholder by default */
+        input[type="date"].empty::-webkit-datetime-edit {
             color: transparent;
         }
 
-        /* Show date format when focused or has a value */
-        input[type="date"]:focus::-webkit-datetime-edit,
-        input[type="date"]:valid::-webkit-datetime-edit {
+        /* Show date format when focused */
+        input[type="date"]:focus::-webkit-datetime-edit {
+            color: #000;
+        }
+
+        /* Show date when it has been filled (class removed) */
+        input[type="date"]:not(.empty)::-webkit-datetime-edit {
             color: #000;
         }
 
@@ -453,6 +457,26 @@
             }
         }
     </style>
+    <script>
+        // Handle date field visibility
+        document.addEventListener('DOMContentLoaded', function() {
+            const dateInputs = document.querySelectorAll('input[type="date"]');
+            
+            // Mark all date inputs as empty initially
+            dateInputs.forEach(input => {
+                input.classList.add('empty');
+                
+                // Update class when value changes
+                input.addEventListener('change', function() {
+                    if (this.value) {
+                        this.classList.remove('empty');
+                    } else {
+                        this.classList.add('empty');
+                    }
+                });
+            });
+        });
+    </script>
 </head>
 <body>
     <a href="#main-content" class="skip-link">Skip to main content</a>
@@ -626,6 +650,7 @@
                                 <div class="schedule-row">
                                     <span style="font-weight: bold;">Work days:</span>
                                     <input type="text" id="opt2a-days" name="opt2a-days" style="width: 240px;" aria-label="Four work days">
+                                    <span style="font-size: 9pt; color: #555; font-style: italic;">(list all four days)</span>
                                 </div>
                                 
                                 <div class="schedule-row">
@@ -639,8 +664,9 @@
                                 </div>
                                 
                                 <div class="schedule-row">
-                                    <span style="font-weight: bold;">Day off:</span>
+                                    <span style="font-weight: bold;">Scheduled workday off:</span>
                                     <input type="text" id="opt2a-dayoff" name="opt2a-dayoff" style="width: 120px;" aria-label="Scheduled day off">
+                                    <span style="font-size: 9pt; color: #555; font-style: italic;">(Monday through Friday, if section's attendance policy allows)</span>
                                 </div>
 
                                 <fieldset class="lunch-options">
@@ -678,8 +704,9 @@
                                 </div>
                                 
                                 <div class="schedule-row">
-                                    <span style="font-weight: bold;">Short day (4 hours):</span>
+                                    <span style="font-weight: bold;">Four-hour workday:</span>
                                     <input type="text" id="opt2b-shortday" name="opt2b-shortday" style="width: 120px;" aria-label="Four-hour work day">
+                                    <span style="font-size: 9pt; color: #555; font-style: italic;">(either Monday or Friday)</span>
                                 </div>
 
                                 <fieldset class="lunch-options">
@@ -728,13 +755,15 @@
                                 </div>
                                 
                                 <div class="schedule-row">
-                                    <span style="font-weight: bold;">Day off:</span>
+                                    <span style="font-weight: bold;">Scheduled day off:</span>
                                     <input type="text" id="opt2c-dayoff" name="opt2c-dayoff" style="width: 120px;" aria-label="Scheduled day off">
+                                    <span style="font-size: 9pt; color: #555; font-style: italic;">(either Monday or Friday)</span>
                                 </div>
 
                                 <div class="schedule-row">
-                                    <span style="font-weight: bold;">Which week:</span>
+                                    <span style="font-weight: bold;">Day off week:</span>
                                     <input type="text" id="opt2c-week" name="opt2c-week" style="width: 160px;" aria-label="Week of pay period for day off">
+                                    <span style="font-size: 9pt; color: #555; font-style: italic;">(First week or Second week of the pay period)</span>
                                 </div>
 
                                 <fieldset class="lunch-options">
