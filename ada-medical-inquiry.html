@@ -1,0 +1,527 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Medical Inquiry Form - Responsive to Accommodation Request</title>
+<style>
+* {
+  box-sizing: border-box;
+}
+
+body {
+  font-family: Arial, sans-serif;
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 20px;
+  line-height: 1.6;
+  color: #000;
+  background: #fff;
+}
+
+/* Print Styles */
+@media print {
+  body {
+    max-width: 100%;
+    margin: 0;
+    padding: 10mm;
+    font-size: 10pt;
+  }
+  
+  .no-print {
+    display: none;
+  }
+  
+  input[type="text"],
+  input[type="date"],
+  input[type="tel"],
+  input[type="email"],
+  textarea {
+    border: none;
+    border-bottom: 1px solid #000;
+    background: transparent;
+    padding: 2px;
+  }
+  
+  input[type="checkbox"],
+  input[type="radio"] {
+    width: 12pt;
+    height: 12pt;
+  }
+  
+  .form-section {
+    page-break-inside: avoid;
+  }
+  
+  * {
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
+  }
+}
+
+/* Screen Styles */
+@media screen {
+  .print-button {
+    position: sticky;
+    top: 10px;
+    z-index: 1000;
+    text-align: center;
+    margin-bottom: 20px;
+  }
+  
+  .print-button button {
+    background-color: #0066cc;
+    color: white;
+    border: none;
+    padding: 12px 24px;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+    border-radius: 5px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.2);
+    transition: background-color 0.2s;
+  }
+  
+  .print-button button:hover {
+    background-color: #0052a3;
+  }
+  
+  .print-button button:focus {
+    outline: 3px solid #0066cc;
+    outline-offset: 2px;
+  }
+}
+
+/* Form Styles */
+.form-section {
+  border: 2px solid #000;
+  padding: 15px;
+  margin-bottom: 20px;
+}
+
+.section-title {
+  margin: 0 0 15px 0;
+  font-size: 1em;
+  font-weight: bold;
+}
+
+.subsection-title {
+  margin: 20px 0 10px 0;
+  font-size: 1em;
+  font-weight: bold;
+}
+
+.confidentiality-box {
+  float: right;
+  width: 280px;
+  border: 1px solid #000;
+  padding: 8px;
+  margin-left: 15px;
+  font-size: 0.85em;
+}
+
+.form-group {
+  margin-bottom: 15px;
+  clear: both;
+}
+
+label {
+  display: block;
+  margin-bottom: 5px;
+  font-weight: bold;
+}
+
+input[type="text"],
+input[type="date"],
+input[type="tel"],
+input[type="email"] {
+  width: 100%;
+  padding: 8px;
+  border: 1px solid #333;
+  font-size: 1em;
+  font-family: Arial, sans-serif;
+}
+
+input[type="text"]:focus,
+input[type="date"]:focus,
+input[type="tel"]:focus,
+input[type="email"]:focus,
+textarea:focus {
+  outline: 3px solid #0066cc;
+  outline-offset: 1px;
+}
+
+textarea {
+  width: 100%;
+  padding: 8px;
+  border: 1px solid #333;
+  font-family: Arial, sans-serif;
+  font-size: 1em;
+  resize: vertical;
+}
+
+fieldset {
+  border: none;
+  padding: 0;
+  margin: 20px 0;
+}
+
+legend {
+  font-weight: bold;
+  margin-bottom: 10px;
+  padding: 0;
+}
+
+.radio-group,
+.checkbox-group {
+  margin-left: 20px;
+}
+
+.radio-group label,
+.checkbox-group label {
+  display: block;
+  margin-bottom: 8px;
+  font-weight: normal;
+  cursor: pointer;
+}
+
+.radio-group.inline label {
+  display: inline-block;
+  margin-right: 20px;
+}
+
+input[type="radio"],
+input[type="checkbox"] {
+  margin-right: 8px;
+  width: 16px;
+  height: 16px;
+  cursor: pointer;
+}
+
+input[type="radio"]:focus,
+input[type="checkbox"]:focus {
+  outline: 3px solid #0066cc;
+  outline-offset: 2px;
+}
+
+.checkbox-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 8px;
+  margin-left: 20px;
+}
+
+.two-column {
+  display: flex;
+  gap: 30px;
+  align-items: flex-end;
+}
+
+.two-column .form-group {
+  flex: 1;
+  margin-bottom: 0;
+}
+
+.two-column .form-group.narrow {
+  flex: 0 0 150px;
+}
+
+.italic-text {
+  font-style: italic;
+  font-size: 0.95em;
+  margin: 10px 0;
+}
+
+.small-italic {
+  font-style: italic;
+  font-size: 0.9em;
+}
+
+.provider-info {
+  margin-top: 30px;
+  border-top: 1px solid #ccc;
+  padding-top: 20px;
+}
+
+.return-instructions {
+  text-align: center;
+  border: 2px solid #000;
+  padding: 15px;
+  margin-bottom: 20px;
+  background-color: #f5f5f5;
+}
+
+.return-instructions strong {
+  display: block;
+  margin-bottom: 5px;
+}
+
+.header-text {
+  text-align: center;
+  margin: 0;
+}
+
+.header-text h1 {
+  font-size: 1.4em;
+  margin: 0 0 5px 0;
+}
+
+.header-text h2 {
+  font-size: 1.1em;
+  margin: 0 0 20px 0;
+}
+
+.revision-text {
+  text-align: right;
+  font-size: 0.9em;
+  margin-bottom: 10px;
+}
+
+.strong-label {
+  font-weight: bold;
+  display: block;
+  margin-bottom: 10px;
+}
+
+.inline-field {
+  display: inline-block;
+  width: auto;
+  max-width: 300px;
+}
+</style>
+</head>
+<body>
+
+<div class="print-button no-print">
+  <button onclick="window.print()" type="button">🖨️ Print Form</button>
+</div>
+
+<div class="revision-text">Rev. 8/23</div>
+
+<div class="header-text">
+  <h1>MEDICAL INQUIRY FORM</h1>
+  <h2>RESPONSIVE TO ACCOMMODATION REQUEST</h2>
+</div>
+
+<form id="medical-inquiry-form">
+  
+  <div class="form-section">
+    <h3 class="section-title">FOR COMPLETION BY EMPLOYEE</h3>
+    
+    <div class="confidentiality-box">
+      <strong>CONFIDENTIALITY STATEMENT:</strong><br>
+      A request for accommodation, including medical and other relevant information, is privileged and may only be released as appropriate to individuals with a business need to know.
+    </div>
+    
+    <div class="form-group">
+      <label for="employee-name">Employee's Name:</label>
+      <input type="text" id="employee-name" name="employee-name" style="max-width: 400px;" autocomplete="name">
+    </div>
+    
+    <div style="clear: both;"></div>
+    
+    <div style="margin-top: 20px;">
+      <h4 class="subsection-title">Authorization for Release of Medical Information</h4>
+      <p class="italic-text">
+        I authorize my Healthcare Provider to release medical information that is specifically related to and necessary for my employer to determine whether I have a disability for which an accommodation(s) may be needed. I authorize my Healthcare Provider to speak directly to my Agency ADA Coordinator in regards to my medical condition and its effects upon my ability to perform the essential functions of my job. I understand that I may refuse to sign this Authorization. However, I understand that my failure to permit these disclosures may impact my employer's ability to fully address my request for accommodation.
+      </p>
+      
+      <div class="two-column" style="margin-top: 20px;">
+        <div class="form-group">
+          <label for="employee-signature">Employee's Signature:</label>
+          <input type="text" id="employee-signature" name="employee-signature">
+        </div>
+        <div class="form-group narrow">
+          <label for="employee-date">Date:</label>
+          <input type="date" id="employee-date" name="employee-date">
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="form-section">
+    <h3 class="section-title">FOR COMPLETION BY HEALTHCARE PROVIDER</h3>
+    
+    <h4 class="subsection-title">SECTION 1: Questions to determine whether employee has a disability</h4>
+    <p class="small-italic">
+      For reasonable accommodation under the Americans with Disabilities Act (ADA), an employee has a disability if he/she has an impairment that substantially limits one or more major life activities or has a record of such an impairment. The following information may help to determine whether an employee has a disability:
+    </p>
+    
+    <fieldset>
+      <legend>Does the employee have a physical or mental impairment?</legend>
+      <div class="radio-group">
+        <label>
+          <input type="radio" name="has-impairment" value="yes">
+          Yes <span class="small-italic">(proceed to section A. below)</span>
+        </label>
+        <label>
+          <input type="radio" name="has-impairment" value="no">
+          No <span class="small-italic">(complete provider information on page 2, sign and return)</span>
+        </label>
+      </div>
+    </fieldset>
+    
+    <div class="form-group">
+      <label for="impairment-nature">A. What is the impairment or the nature of the impairment?</label>
+      <textarea id="impairment-nature" name="impairment-nature" rows="5"></textarea>
+    </div>
+    
+    <fieldset>
+      <legend>B. Does the impairment substantially limit a major life activity as compared to the general population?</legend>
+      <div class="radio-group inline">
+        <label>
+          <input type="radio" name="limits-activity" value="yes">
+          Yes
+        </label>
+        <label>
+          <input type="radio" name="limits-activity" value="no">
+          No
+        </label>
+      </div>
+    </fieldset>
+    
+    <fieldset>
+      <legend>C. What major life activity(s) and/or major bodily function(s) is limited?</legend>
+      
+      <div style="margin: 15px 0;">
+        <span class="strong-label">Major Life Activities:</span>
+        <div class="checkbox-grid">
+          <label><input type="checkbox" name="activity" value="bending">Bending</label>
+          <label><input type="checkbox" name="activity" value="breathing">Breathing</label>
+          <label><input type="checkbox" name="activity" value="caring-for-self">Caring for Self</label>
+          <label><input type="checkbox" name="activity" value="concentrating">Concentrating</label>
+          <label><input type="checkbox" name="activity" value="eating">Eating</label>
+          <label><input type="checkbox" name="activity" value="hearing">Hearing</label>
+          <label><input type="checkbox" name="activity" value="interacting">Interacting with Others</label>
+          <label><input type="checkbox" name="activity" value="learning">Learning</label>
+          <label><input type="checkbox" name="activity" value="lifting">Lifting</label>
+          <label><input type="checkbox" name="activity" value="performing-manual">Performing Manual Tasks</label>
+          <label><input type="checkbox" name="activity" value="reaching">Reaching</label>
+          <label><input type="checkbox" name="activity" value="reading">Reading</label>
+          <label><input type="checkbox" name="activity" value="seeing">Seeing</label>
+          <label><input type="checkbox" name="activity" value="sitting">Sitting</label>
+          <label><input type="checkbox" name="activity" value="sleeping">Sleeping</label>
+          <label><input type="checkbox" name="activity" value="speaking">Speaking</label>
+          <label><input type="checkbox" name="activity" value="standing">Standing</label>
+          <label><input type="checkbox" name="activity" value="thinking">Thinking</label>
+          <label><input type="checkbox" name="activity" value="walking">Walking</label>
+          <label><input type="checkbox" name="activity" value="working">Working</label>
+        </div>
+        <div style="margin-top: 10px; margin-left: 20px;">
+          <label for="activity-other" style="display: inline; font-weight: normal;">Other:</label>
+          <input type="text" id="activity-other" name="activity-other" class="inline-field">
+        </div>
+      </div>
+      
+      <div style="margin: 15px 0;">
+        <span class="strong-label">Major Bodily Functions:</span>
+        <div class="checkbox-grid">
+          <label><input type="checkbox" name="bodily-function" value="bladder">Bladder</label>
+          <label><input type="checkbox" name="bodily-function" value="bowel">Bowel</label>
+          <label><input type="checkbox" name="bodily-function" value="brain">Brain</label>
+          <label><input type="checkbox" name="bodily-function" value="cardiovascular">Cardiovascular</label>
+          <label><input type="checkbox" name="bodily-function" value="circulatory">Circulatory</label>
+          <label><input type="checkbox" name="bodily-function" value="digestive">Digestive</label>
+          <label><input type="checkbox" name="bodily-function" value="endocrine">Endocrine</label>
+          <label><input type="checkbox" name="bodily-function" value="genitourinary">Genitourinary</label>
+          <label><input type="checkbox" name="bodily-function" value="hemic">Hemic</label>
+          <label><input type="checkbox" name="bodily-function" value="immune">Immune</label>
+          <label><input type="checkbox" name="bodily-function" value="lymphatic">Lymphatic</label>
+          <label><input type="checkbox" name="bodily-function" value="musculoskeletal">Musculoskeletal</label>
+          <label><input type="checkbox" name="bodily-function" value="neurological">Neurological</label>
+          <label><input type="checkbox" name="bodily-function" value="normal-cell-growth">Normal Cell Growth</label>
+          <label><input type="checkbox" name="bodily-function" value="operation-organ">Operation of an Organ</label>
+          <label><input type="checkbox" name="bodily-function" value="reproductive">Reproductive</label>
+          <label><input type="checkbox" name="bodily-function" value="respiratory">Respiratory</label>
+          <label><input type="checkbox" name="bodily-function" value="special-sense">Special Sense Organs & Skin</label>
+        </div>
+        <div style="margin-top: 10px; margin-left: 20px;">
+          <label for="bodily-function-other" style="display: inline; font-weight: normal;">Other:</label>
+          <input type="text" id="bodily-function-other" name="bodily-function-other" class="inline-field">
+        </div>
+      </div>
+    </fieldset>
+    
+    <div class="form-group">
+      <label for="functional-limitations">D. Describe any functional limitations caused by the impairment:</label>
+      <textarea id="functional-limitations" name="functional-limitations" rows="6"></textarea>
+    </div>
+  </div>
+
+  <div class="form-section">
+    <h4 class="subsection-title" style="margin-top: 0;">SECTION 2: Questions to help determine whether an accommodation is needed.</h4>
+    <p class="small-italic">
+      An employee with a disability is entitled to an accommodation only when the accommodation is needed because of the disability. The following information may help determine whether the requested accommodation is needed because of the disability:
+    </p>
+    
+    <div class="form-group">
+      <label for="job-duties-difficulty">A. What job duties is the employee unable to perform or having difficulty performing?</label>
+      <textarea id="job-duties-difficulty" name="job-duties-difficulty" rows="5"></textarea>
+    </div>
+    
+    <div class="form-group">
+      <label for="interference-description">B. How does the employee's functional limitation(s) interfere with his/her ability to perform required job duties?</label>
+      <textarea id="interference-description" name="interference-description" rows="5"></textarea>
+    </div>
+    
+    <div class="form-group">
+      <label for="anticipated-period">C. What is the anticipated period of time the employee's ability to perform required job duties will be limited?</label>
+      <textarea id="anticipated-period" name="anticipated-period" rows="2"></textarea>
+    </div>
+    
+    <div class="provider-info">
+      <div class="two-column" style="margin-bottom: 15px;">
+        <div class="form-group">
+          <label for="provider-signature">Health Care Provider's Signature:</label>
+          <input type="text" id="provider-signature" name="provider-signature">
+        </div>
+        <div class="form-group narrow">
+          <label for="provider-date">Date:</label>
+          <input type="date" id="provider-date" name="provider-date">
+        </div>
+      </div>
+      
+      <div class="form-group">
+        <label for="provider-name">Health Care Provider's Name (Printed):</label>
+        <input type="text" id="provider-name" name="provider-name" autocomplete="name">
+      </div>
+      
+      <div class="form-group">
+        <label for="practice-specialty">Practice Specialty:</label>
+        <input type="text" id="practice-specialty" name="practice-specialty">
+      </div>
+      
+      <div class="form-group">
+        <label for="clinic-name">Clinic Name:</label>
+        <input type="text" id="clinic-name" name="clinic-name" autocomplete="organization">
+      </div>
+      
+      <div class="form-group">
+        <label for="address">Address:</label>
+        <input type="text" id="address" name="address" autocomplete="street-address">
+      </div>
+      
+      <div class="two-column">
+        <div class="form-group">
+          <label for="telephone">Telephone #:</label>
+          <input type="tel" id="telephone" name="telephone" autocomplete="tel">
+        </div>
+        <div class="form-group">
+          <label for="fax">Fax #:</label>
+          <input type="tel" id="fax" name="fax">
+        </div>
+      </div>
+    </div>
+  </div>
+
+</form>
+
+<div class="return-instructions">
+  <strong>RETURN COMPLETED FORM DIRECTLY TO CHRISTINA CARDONA, DOA ADA COORDINATOR</strong>
+  <div>By Fax to: (225) 219-9558; or email to: <a href="mailto:Christina.Cardona@la.gov" style="color: #0066cc;">Christina.Cardona@la.gov</a></div>
+</div>
+
+<div class="revision-text" style="margin-top: 20px;">Rev. 8/23</div>
+
+</body>
+</html>
