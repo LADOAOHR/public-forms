@@ -467,19 +467,20 @@
 
             <div class="option-box">
                 <h3>Option 1: Fill Out Online, Then Save as PDF</h3>
+                <p><em>Best for: Most users who are comfortable typing</em></p>
                 <ol>
                     <li>Complete all fields in your web browser</li>
                     <li>Type your name in the signature field (this counts as your signature)</li>
                     <li>Click the <strong>Print</strong> button (top right corner of the screen)</li>
                     <li>Select <strong>"Save as PDF"</strong> as your printer</li>
-                    <li>Save the completed PDF to your computer or mobile device</li>
+                    <li>Save the completed PDF to your computer</li>
                     <li>Email the PDF to your supervisor for approval</li>
                 </ol>
             </div>
 
             <div class="option-box">
                 <h3>Option 2: Save Blank PDF, Then Fill Digitally</h3>
-                <p><em>Best for: Those who want to use PDF Fill & Sign tools</em></p>
+                <p><em>Best for: Those who want to use Adobe Fill & Sign tools</em></p>
                 <ol>
                     <li>Click the <strong>Print</strong> button (top right corner)</li>
                     <li>Select <strong>"Save as PDF"</strong> as your printer and save the blank form</li>
@@ -492,10 +493,11 @@
 
             <div class="option-box">
                 <h3>Option 3: Print on Paper and Complete by Hand</h3>
+                <p><em>Best for: Those who prefer or need to work with paper forms</em></p>
                 <ol>
                     <li>Click the <strong>Print</strong> button (top right corner)</li>
                     <li>Select your printer and print the form on paper</li>
-                    <li>Fill out all fields with a blue or black ink pen (do not use a pencil)</li>
+                    <li>Fill out all fields with a pen</li>
                     <li>Sign the form</li>
                     <li>Either:
                         <ul style="margin: 6px 0 0 20px; list-style-type: disc;">
@@ -510,7 +512,7 @@
             <p>After your supervisor approves and signs the form, they will forward it to the Office of Human Resources (OHR) for final processing.</p>
 
             <h2>Need Help?</h2>
-            <p>If you have questions about completing this form, contact your supervisor or the Office of Human Resources.</p>
+            <p>If you have questions about completing this form or which work schedule option is right for you, contact your supervisor or the Office of Human Resources.</p>
         </div>
 
         <!-- Form Page -->
@@ -568,9 +570,9 @@
                             <div class="schedule-row">
                                 <span style="font-weight: bold;">Daily schedule:</span>
                                 <div class="time-input">
-                                    <input type="text" id="opt1-start" name="opt1-start" placeholder="8:00" aria-label="Start time">
+                                    <input type="text" id="opt1-start" name="opt1-start" aria-label="Start time">
                                     <span>a.m. to</span>
-                                    <input type="text" id="opt1-end" name="opt1-end" placeholder="5:00" aria-label="End time">
+                                    <input type="text" id="opt1-end" name="opt1-end" aria-label="End time">
                                     <span>p.m.</span>
                                 </div>
                             </div>
@@ -614,22 +616,22 @@
                                 
                                 <div class="schedule-row">
                                     <span style="font-weight: bold;">Work days:</span>
-                                    <input type="text" id="opt2a-days" name="opt2a-days" style="width: 240px;" placeholder="e.g., Monday, Tuesday, Wednesday, Thursday" aria-label="Four work days">
+                                    <input type="text" id="opt2a-days" name="opt2a-days" style="width: 240px;" aria-label="Four work days">
                                 </div>
                                 
                                 <div class="schedule-row">
                                     <span style="font-weight: bold;">Daily schedule:</span>
                                     <div class="time-input">
-                                        <input type="text" id="opt2a-start" name="opt2a-start" placeholder="7:00" aria-label="Start time">
+                                        <input type="text" id="opt2a-start" name="opt2a-start" aria-label="Start time">
                                         <span>a.m. to</span>
-                                        <input type="text" id="opt2a-end" name="opt2a-end" placeholder="6:00" aria-label="End time">
+                                        <input type="text" id="opt2a-end" name="opt2a-end" aria-label="End time">
                                         <span>p.m.</span>
                                     </div>
                                 </div>
                                 
                                 <div class="schedule-row">
                                     <span style="font-weight: bold;">Day off:</span>
-                                    <input type="text" id="opt2a-dayoff" name="opt2a-dayoff" style="width: 120px;" placeholder="e.g., Friday" aria-label="Scheduled day off">
+                                    <input type="text" id="opt2a-dayoff" name="opt2a-dayoff" style="width: 120px;" aria-label="Scheduled day off">
                                 </div>
 
                                 <fieldset class="lunch-options">
@@ -659,16 +661,16 @@
                                 <div class="schedule-row">
                                     <span style="font-weight: bold;">Full day schedule (9 hours):</span>
                                     <div class="time-input">
-                                        <input type="text" id="opt2b-start" name="opt2b-start" placeholder="8:00" aria-label="Start time for 9-hour days">
+                                        <input type="text" id="opt2b-start" name="opt2b-start" aria-label="Start time for 9-hour days">
                                         <span>a.m. to</span>
-                                        <input type="text" id="opt2b-end" name="opt2b-end" placeholder="6:00" aria-label="End time for 9-hour days">
+                                        <input type="text" id="opt2b-end" name="opt2b-end" aria-label="End time for 9-hour days">
                                         <span>p.m.</span>
                                     </div>
                                 </div>
                                 
                                 <div class="schedule-row">
                                     <span style="font-weight: bold;">Short day (4 hours):</span>
-                                    <input type="text" id="opt2b-shortday" name="opt2b-shortday" style="width: 120px;" placeholder="Monday or Friday" aria-label="Four-hour work day">
+                                    <input type="text" id="opt2b-shortday" name="opt2b-shortday" style="width: 120px;" aria-label="Four-hour work day">
                                 </div>
 
                                 <fieldset class="lunch-options">
@@ -699,9 +701,9 @@
                                 <div class="schedule-row">
                                     <span style="font-weight: bold;">9-hour day schedule:</span>
                                     <div class="time-input">
-                                        <input type="text" id="opt2c-nine-start" name="opt2c-nine-start" placeholder="8:00" aria-label="Start time for 9-hour days">
+                                        <input type="text" id="opt2c-nine-start" name="opt2c-nine-start" aria-label="Start time for 9-hour days">
                                         <span>a.m. to</span>
-                                        <input type="text" id="opt2c-nine-end" name="opt2c-nine-end" placeholder="6:00" aria-label="End time for 9-hour days">
+                                        <input type="text" id="opt2c-nine-end" name="opt2c-nine-end" aria-label="End time for 9-hour days">
                                         <span>p.m.</span>
                                     </div>
                                 </div>
@@ -709,21 +711,21 @@
                                 <div class="schedule-row">
                                     <span style="font-weight: bold;">8-hour day schedule:</span>
                                     <div class="time-input">
-                                        <input type="text" id="opt2c-eight-start" name="opt2c-eight-start" placeholder="8:00" aria-label="Start time for 8-hour day">
+                                        <input type="text" id="opt2c-eight-start" name="opt2c-eight-start" aria-label="Start time for 8-hour day">
                                         <span>a.m. to</span>
-                                        <input type="text" id="opt2c-eight-end" name="opt2c-eight-end" placeholder="5:00" aria-label="End time for 8-hour day">
+                                        <input type="text" id="opt2c-eight-end" name="opt2c-eight-end" aria-label="End time for 8-hour day">
                                         <span>p.m.</span>
                                     </div>
                                 </div>
                                 
                                 <div class="schedule-row">
                                     <span style="font-weight: bold;">Day off:</span>
-                                    <input type="text" id="opt2c-dayoff" name="opt2c-dayoff" style="width: 120px;" placeholder="Monday or Friday" aria-label="Scheduled day off">
+                                    <input type="text" id="opt2c-dayoff" name="opt2c-dayoff" style="width: 120px;" aria-label="Scheduled day off">
                                 </div>
 
                                 <div class="schedule-row">
                                     <span style="font-weight: bold;">Which week:</span>
-                                    <input type="text" id="opt2c-week" name="opt2c-week" style="width: 160px;" placeholder="First or Second week" aria-label="Week of pay period for day off">
+                                    <input type="text" id="opt2c-week" name="opt2c-week" style="width: 160px;" aria-label="Week of pay period for day off">
                                 </div>
 
                                 <fieldset class="lunch-options">
