@@ -1,0 +1,664 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Request for Flexible Work Hours/Work Schedule</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            font-size: 11pt;
+            line-height: 1.6;
+            color: #000;
+            background-color: #f5f5f5;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 8.5in;
+            margin: 0 auto;
+            background-color: #fff;
+            padding: 0.75in;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+        }
+
+        h1 {
+            text-align: center;
+            font-size: 16pt;
+            font-weight: bold;
+            margin-bottom: 24px;
+            text-transform: uppercase;
+            border-bottom: 3px solid #000;
+            padding-bottom: 12px;
+        }
+
+        h2 {
+            font-size: 13pt;
+            font-weight: bold;
+            margin: 24px 0 12px 0;
+            color: #000;
+        }
+
+        .form-section {
+            margin-bottom: 24px;
+        }
+
+        .info-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 16px;
+            margin-bottom: 24px;
+        }
+
+        .info-grid.full-width {
+            grid-template-columns: 1fr;
+        }
+
+        .form-field {
+            display: flex;
+            flex-direction: column;
+        }
+
+        label {
+            font-weight: bold;
+            margin-bottom: 4px;
+            font-size: 10pt;
+        }
+
+        input[type="text"],
+        input[type="date"] {
+            padding: 8px;
+            border: none;
+            border-bottom: 2px solid #333;
+            font-size: 11pt;
+            background-color: transparent;
+        }
+
+        input[type="text"]:focus,
+        input[type="date"]:focus {
+            outline: 2px solid #0066cc;
+            outline-offset: 2px;
+            border-bottom-color: #0066cc;
+        }
+
+        .schedule-options {
+            margin: 24px 0;
+        }
+
+        .option-card {
+            border: 2px solid #333;
+            border-radius: 8px;
+            padding: 20px;
+            margin-bottom: 16px;
+            background-color: #fafafa;
+        }
+
+        .option-card:hover {
+            background-color: #f0f0f0;
+        }
+
+        .option-header {
+            display: flex;
+            align-items: flex-start;
+            gap: 12px;
+            margin-bottom: 16px;
+        }
+
+        .option-header input[type="radio"] {
+            width: 20px;
+            height: 20px;
+            margin-top: 2px;
+            flex-shrink: 0;
+        }
+
+        .option-title {
+            flex: 1;
+        }
+
+        .option-title h3 {
+            font-size: 12pt;
+            font-weight: bold;
+            margin-bottom: 4px;
+            color: #000;
+        }
+
+        .option-title .subtitle {
+            font-size: 10pt;
+            color: #333;
+            font-weight: normal;
+        }
+
+        .option-details {
+            margin-left: 32px;
+            padding-top: 12px;
+            border-top: 1px solid #ccc;
+        }
+
+        .schedule-row {
+            display: flex;
+            gap: 12px;
+            align-items: center;
+            margin-bottom: 12px;
+            flex-wrap: wrap;
+        }
+
+        .schedule-row label {
+            font-weight: normal;
+            margin: 0;
+        }
+
+        .schedule-row input[type="text"] {
+            width: 70px;
+            padding: 4px 8px;
+            border: 1px solid #666;
+            border-radius: 4px;
+        }
+
+        .time-input {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        .lunch-options {
+            display: flex;
+            gap: 20px;
+            align-items: center;
+            margin-top: 12px;
+            padding: 12px;
+            background-color: #fff;
+            border-radius: 4px;
+        }
+
+        .lunch-options span.label {
+            font-weight: bold;
+            margin-right: 8px;
+        }
+
+        .radio-option {
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        .radio-option input[type="radio"] {
+            width: 16px;
+            height: 16px;
+        }
+
+        .radio-option label {
+            font-weight: normal;
+            margin: 0;
+            cursor: pointer;
+        }
+
+        .sub-option {
+            background-color: #fff;
+            border: 1px solid #ddd;
+            border-radius: 6px;
+            padding: 16px;
+            margin-bottom: 12px;
+        }
+
+        .sub-option-title {
+            font-weight: bold;
+            font-size: 11pt;
+            margin-bottom: 12px;
+            color: #000;
+        }
+
+        .note {
+            font-size: 9pt;
+            color: #555;
+            font-style: italic;
+            margin-top: 8px;
+        }
+
+        .agreement-box {
+            background-color: #f9f9f9;
+            border: 2px solid #333;
+            border-radius: 8px;
+            padding: 20px;
+            margin: 24px 0;
+        }
+
+        .agreement-box p {
+            margin-bottom: 12px;
+            line-height: 1.7;
+        }
+
+        .signature-section {
+            margin-top: 32px;
+        }
+
+        .signature-grid {
+            display: grid;
+            grid-template-columns: 2fr 1fr;
+            gap: 24px;
+            margin-bottom: 24px;
+        }
+
+        .signature-field label {
+            font-size: 10pt;
+            margin-bottom: 8px;
+        }
+
+        .signature-field input {
+            border-bottom: 2px solid #000;
+        }
+
+        .footer-note {
+            margin-top: 32px;
+            padding: 16px;
+            background-color: #f0f0f0;
+            border-left: 4px solid #333;
+            font-size: 10pt;
+            font-style: italic;
+        }
+
+        .print-button {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            padding: 12px 24px;
+            background-color: #0066cc;
+            color: #fff;
+            border: none;
+            border-radius: 6px;
+            font-size: 14pt;
+            cursor: pointer;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+            z-index: 1000;
+            font-weight: bold;
+        }
+
+        .print-button:hover {
+            background-color: #0052a3;
+        }
+
+        .print-button:focus {
+            outline: 3px solid #ffa500;
+            outline-offset: 2px;
+        }
+
+        .skip-link {
+            position: absolute;
+            top: -40px;
+            left: 0;
+            background: #000;
+            color: #fff;
+            padding: 8px;
+            text-decoration: none;
+            z-index: 100;
+        }
+
+        .skip-link:focus {
+            top: 0;
+        }
+
+        @media print {
+            body {
+                background-color: #fff;
+                padding: 0;
+            }
+
+            .container {
+                box-shadow: none;
+                padding: 0.5in;
+                max-width: none;
+            }
+
+            .print-button {
+                display: none;
+            }
+
+            .option-card {
+                background-color: #fff;
+                page-break-inside: avoid;
+            }
+
+            .option-card:hover {
+                background-color: #fff;
+            }
+
+            input[type="text"],
+            input[type="date"] {
+                border-bottom: 1px solid #000;
+            }
+
+            .sub-option {
+                background-color: #fff;
+            }
+
+            @page {
+                size: letter;
+                margin: 0.5in;
+            }
+        }
+
+        @media screen and (max-width: 768px) {
+            .container {
+                padding: 20px;
+            }
+
+            .info-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .signature-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .schedule-row {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+
+            .lunch-options {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 12px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <a href="#main-content" class="skip-link">Skip to main content</a>
+    
+    <button class="print-button" onclick="window.print()" aria-label="Print form">
+        🖨️ Print
+    </button>
+
+    <div class="container">
+        <main id="main-content">
+            <h1>Request for Flexible Work Hours/Work Schedule</h1>
+
+            <form action="#" method="post">
+                <!-- Employee Information Section -->
+                <section class="form-section" aria-labelledby="employee-info-heading">
+                    <h2 id="employee-info-heading">Employee Information</h2>
+                    
+                    <div class="info-grid full-width">
+                        <div class="form-field">
+                            <label for="employee-name">Employee Name</label>
+                            <input type="text" id="employee-name" name="employee-name" required aria-required="true">
+                        </div>
+                    </div>
+
+                    <div class="info-grid">
+                        <div class="form-field">
+                            <label for="section-unit">Section/Unit</label>
+                            <input type="text" id="section-unit" name="section-unit" required aria-required="true">
+                        </div>
+                        <div class="form-field">
+                            <label for="personnel-number">Personnel Number</label>
+                            <input type="text" id="personnel-number" name="personnel-number" required aria-required="true">
+                        </div>
+                    </div>
+
+                    <div class="info-grid full-width">
+                        <div class="form-field">
+                            <label for="title">Job Title</label>
+                            <input type="text" id="title" name="title" required aria-required="true">
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Schedule Selection Section -->
+                <section class="form-section schedule-options" aria-labelledby="schedule-heading">
+                    <h2 id="schedule-heading">Select Your Work Schedule</h2>
+                    <p style="margin-bottom: 16px; color: #333;">Choose one schedule option below:</p>
+
+                    <!-- Option 1: Traditional Schedule -->
+                    <div class="option-card">
+                        <div class="option-header">
+                            <input type="radio" id="option1" name="schedule-option" value="option1" aria-describedby="option1-desc">
+                            <div class="option-title">
+                                <label for="option1">
+                                    <h3>Traditional Schedule</h3>
+                                    <div class="subtitle">Five 8-hour days (Monday–Friday, 40 hours/week)</div>
+                                </label>
+                            </div>
+                        </div>
+                        <div class="option-details" id="option1-desc">
+                            <div class="schedule-row">
+                                <span style="font-weight: bold;">Daily schedule:</span>
+                                <div class="time-input">
+                                    <input type="text" id="opt1-start" name="opt1-start" placeholder="8:00" aria-label="Start time">
+                                    <span>a.m. to</span>
+                                    <input type="text" id="opt1-end" name="opt1-end" placeholder="5:00" aria-label="End time">
+                                    <span>p.m.</span>
+                                </div>
+                            </div>
+                            <div class="lunch-options" role="radiogroup" aria-label="Lunch duration for traditional schedule">
+                                <span class="label">Lunch break:</span>
+                                <div class="radio-option">
+                                    <input type="radio" id="opt1-lunch-30" name="opt1-lunch" value="30">
+                                    <label for="opt1-lunch-30">30 minutes</label>
+                                </div>
+                                <div class="radio-option">
+                                    <input type="radio" id="opt1-lunch-45" name="opt1-lunch" value="45">
+                                    <label for="opt1-lunch-45">45 minutes</label>
+                                </div>
+                                <div class="radio-option">
+                                    <input type="radio" id="opt1-lunch-60" name="opt1-lunch" value="60">
+                                    <label for="opt1-lunch-60">1 hour</label>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Option 2: Flexible Schedules -->
+                    <div class="option-card">
+                        <div class="option-header">
+                            <input type="radio" id="option2" name="schedule-option" value="option2" aria-describedby="option2-desc">
+                            <div class="option-title">
+                                <label for="option2">
+                                    <h3>Flexible Schedule</h3>
+                                    <div class="subtitle">Choose from three alternative work arrangements (40 hours/week)</div>
+                                </label>
+                            </div>
+                        </div>
+                        <div class="option-details" id="option2-desc">
+                            
+                            <!-- Sub-option 2A -->
+                            <div class="sub-option">
+                                <div class="sub-option-title">Option A: 4-Day Work Week</div>
+                                <p style="margin-bottom: 12px; font-size: 10pt;">Four 10-hour days with one weekday off</p>
+                                
+                                <div class="schedule-row">
+                                    <span style="font-weight: bold;">Work days:</span>
+                                    <input type="text" id="opt2a-days" name="opt2a-days" style="width: 240px;" placeholder="e.g., Monday, Tuesday, Wednesday, Thursday" aria-label="Four work days">
+                                </div>
+                                
+                                <div class="schedule-row">
+                                    <span style="font-weight: bold;">Daily schedule:</span>
+                                    <div class="time-input">
+                                        <input type="text" id="opt2a-start" name="opt2a-start" placeholder="7:00" aria-label="Start time">
+                                        <span>a.m. to</span>
+                                        <input type="text" id="opt2a-end" name="opt2a-end" placeholder="6:00" aria-label="End time">
+                                        <span>p.m.</span>
+                                    </div>
+                                </div>
+                                
+                                <div class="schedule-row">
+                                    <span style="font-weight: bold;">Day off:</span>
+                                    <input type="text" id="opt2a-dayoff" name="opt2a-dayoff" style="width: 120px;" placeholder="e.g., Friday" aria-label="Scheduled day off">
+                                </div>
+
+                                <div class="lunch-options" role="radiogroup" aria-label="Lunch duration for 4-day week">
+                                    <span class="label">Lunch break:</span>
+                                    <div class="radio-option">
+                                        <input type="radio" id="opt2a-lunch-30" name="opt2a-lunch" value="30">
+                                        <label for="opt2a-lunch-30">30 minutes</label>
+                                    </div>
+                                    <div class="radio-option">
+                                        <input type="radio" id="opt2a-lunch-45" name="opt2a-lunch" value="45">
+                                        <label for="opt2a-lunch-45">45 minutes</label>
+                                    </div>
+                                    <div class="radio-option">
+                                        <input type="radio" id="opt2a-lunch-60" name="opt2a-lunch" value="60">
+                                        <label for="opt2a-lunch-60">1 hour</label>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Sub-option 2B -->
+                            <div class="sub-option">
+                                <div class="sub-option-title">Option B: Partial Day Schedule</div>
+                                <p style="margin-bottom: 12px; font-size: 10pt;">Four 9-hour days plus one 4-hour day</p>
+                                
+                                <div class="schedule-row">
+                                    <span style="font-weight: bold;">Full day schedule (9 hours):</span>
+                                    <div class="time-input">
+                                        <input type="text" id="opt2b-start" name="opt2b-start" placeholder="8:00" aria-label="Start time for 9-hour days">
+                                        <span>a.m. to</span>
+                                        <input type="text" id="opt2b-end" name="opt2b-end" placeholder="6:00" aria-label="End time for 9-hour days">
+                                        <span>p.m.</span>
+                                    </div>
+                                </div>
+                                
+                                <div class="schedule-row">
+                                    <span style="font-weight: bold;">Short day (4 hours):</span>
+                                    <input type="text" id="opt2b-shortday" name="opt2b-shortday" style="width: 120px;" placeholder="Monday or Friday" aria-label="Four-hour work day">
+                                </div>
+
+                                <div class="lunch-options" role="radiogroup" aria-label="Lunch duration for partial day schedule">
+                                    <span class="label">Lunch break:</span>
+                                    <div class="radio-option">
+                                        <input type="radio" id="opt2b-lunch-30" name="opt2b-lunch" value="30">
+                                        <label for="opt2b-lunch-30">30 minutes</label>
+                                    </div>
+                                    <div class="radio-option">
+                                        <input type="radio" id="opt2b-lunch-45" name="opt2b-lunch" value="45">
+                                        <label for="opt2b-lunch-45">45 minutes</label>
+                                    </div>
+                                    <div class="radio-option">
+                                        <input type="radio" id="opt2b-lunch-60" name="opt2b-lunch" value="60">
+                                        <label for="opt2b-lunch-60">1 hour</label>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Sub-option 2C -->
+                            <div class="sub-option">
+                                <div class="sub-option-title">Option C: 9/80 Schedule</div>
+                                <p style="margin-bottom: 12px; font-size: 10pt;">Nine 9-hour days and one 8-hour day over two weeks, with one day off every other week</p>
+                                <p class="note">Available to exempt employees only</p>
+                                
+                                <div class="schedule-row">
+                                    <span style="font-weight: bold;">9-hour day schedule:</span>
+                                    <div class="time-input">
+                                        <input type="text" id="opt2c-nine-start" name="opt2c-nine-start" placeholder="8:00" aria-label="Start time for 9-hour days">
+                                        <span>a.m. to</span>
+                                        <input type="text" id="opt2c-nine-end" name="opt2c-nine-end" placeholder="6:00" aria-label="End time for 9-hour days">
+                                        <span>p.m.</span>
+                                    </div>
+                                </div>
+                                
+                                <div class="schedule-row">
+                                    <span style="font-weight: bold;">8-hour day schedule:</span>
+                                    <div class="time-input">
+                                        <input type="text" id="opt2c-eight-start" name="opt2c-eight-start" placeholder="8:00" aria-label="Start time for 8-hour day">
+                                        <span>a.m. to</span>
+                                        <input type="text" id="opt2c-eight-end" name="opt2c-eight-end" placeholder="5:00" aria-label="End time for 8-hour day">
+                                        <span>p.m.</span>
+                                    </div>
+                                </div>
+                                
+                                <div class="schedule-row">
+                                    <span style="font-weight: bold;">Day off:</span>
+                                    <input type="text" id="opt2c-dayoff" name="opt2c-dayoff" style="width: 120px;" placeholder="Monday or Friday" aria-label="Scheduled day off">
+                                </div>
+
+                                <div class="schedule-row">
+                                    <span style="font-weight: bold;">Which week:</span>
+                                    <input type="text" id="opt2c-week" name="opt2c-week" style="width: 160px;" placeholder="First or Second week" aria-label="Week of pay period for day off">
+                                </div>
+
+                                <div class="lunch-options" role="radiogroup" aria-label="Lunch duration for 9/80 schedule">
+                                    <span class="label">Lunch break:</span>
+                                    <div class="radio-option">
+                                        <input type="radio" id="opt2c-lunch-30" name="opt2c-lunch" value="30">
+                                        <label for="opt2c-lunch-30">30 minutes</label>
+                                    </div>
+                                    <div class="radio-option">
+                                        <input type="radio" id="opt2c-lunch-45" name="opt2c-lunch" value="45">
+                                        <label for="opt2c-lunch-45">45 minutes</label>
+                                    </div>
+                                    <div class="radio-option">
+                                        <input type="radio" id="opt2c-lunch-60" name="opt2c-lunch" value="60">
+                                        <label for="opt2c-lunch-60">1 hour</label>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Start Date Section -->
+                <section class="form-section">
+                    <h2>Schedule Start Date</h2>
+                    <div class="info-grid full-width">
+                        <div class="form-field">
+                            <label for="start-date">Requested start date <span class="note">(must be the beginning of a pay period)</span></label>
+                            <input type="date" id="start-date" name="start-date" required aria-required="true">
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Agreement Section -->
+                <section class="form-section" aria-labelledby="agreement-heading">
+                    <h2 id="agreement-heading">Terms and Conditions</h2>
+                    <div class="agreement-box" role="region" aria-label="Terms and conditions agreement">
+                        <p>I have read and understand the DOA Personnel Policy Number 6, <em>Attendance/Leave, Work Hours and Work Schedules</em>.</p>
+                        <p>I understand that:</p>
+                        <ul style="margin-left: 24px; margin-bottom: 12px;">
+                            <li>If business needs change, my schedule could change upon immediate notice</li>
+                            <li>If I choose a flexible schedule, I may be compensated differently from others while traveling and when holidays fall within the workweek</li>
+                        </ul>
+                        <p style="font-weight: bold;">I agree to these terms and conditions.</p>
+                    </div>
+                </section>
+
+                <!-- Signature Section -->
+                <section class="signature-section" aria-labelledby="signature-heading">
+                    <h2 id="signature-heading">Signatures</h2>
+                    
+                    <div class="signature-grid">
+                        <div class="form-field signature-field">
+                            <label for="employee-signature">Employee Signature</label>
+                            <input type="text" id="employee-signature" name="employee-signature" required aria-required="true">
+                        </div>
+                        <div class="form-field signature-field">
+                            <label for="employee-date">Date</label>
+                            <input type="date" id="employee-date" name="employee-date" required aria-required="true">
+                        </div>
+                    </div>
+
+                    <div class="signature-grid">
+                        <div class="form-field signature-field">
+                            <label for="approver-signature">Approved By (Supervisor/Manager)</label>
+                            <input type="text" id="approver-signature" name="approver-signature">
+                        </div>
+                        <div class="form-field signature-field">
+                            <label for="approver-date">Date</label>
+                            <input type="date" id="approver-date" name="approver-date">
+                        </div>
+                    </div>
+                </section>
+
+                <div class="footer-note">
+                    <strong>Next Steps:</strong> Upon completion and approval by the section head, forward the original form to the Office of Human Resources (OHR).
+                </div>
+            </form>
+        </main>
+    </div>
+</body>
+</html>
